@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.6.14'
+    id 'org.springframework.boot' version '3.1.0'
     id 'groovy'
     id("io.freefair.lombok") version "8.6"
 }
@@ -20,21 +20,21 @@ repositories {
 
 
 dependencies {
-    implementation 'com.azure:azure-spring-data-cosmos:3.42.0'
-    implementation 'org.springframework.boot:spring-boot:2.6.14'
+    implementation 'com.azure:azure-spring-data-cosmos:5.9.1'
+    implementation 'org.springframework.boot:spring-boot:3.1.0'
     implementation 'org.springframework.boot:spring-boot-starter'
-    implementation platform('org.springframework.boot:spring-boot-dependencies:2.6.14')
+    implementation platform('org.springframework.boot:spring-boot-dependencies:3.1.0')
     testImplementation 'org.codehaus.groovy:groovy-all:3.0.14'
-    testImplementation 'org.spockframework:spock-core:2.3-groovy-3.0'
-    testImplementation 'org.spockframework:spock-spring:2.3-groovy-3.0'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.14'
+    testImplementation 'org.spockframework:spock-core:2.4-M1-groovy-3.0'
+    testImplementation 'org.spockframework:spock-spring:2.4-M1-groovy-3.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.0'
 }
 
 tasks.named('test') {
+    jvmArgs += ["--add-opens", "java.base/java.math=ALL-UNNAMED"]
     testLogging {
         exceptionFormat = 'full'
     }
-    jvmArgs += ["--add-opens", "java.base/java.math=ALL-UNNAMED"]
     useJUnitPlatform()
 }
 

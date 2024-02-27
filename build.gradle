@@ -30,4 +30,12 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.14'
 }
 
+tasks.named('test') {
+    testLogging {
+        exceptionFormat = 'full'
+    }
+    jvmArgs += ["--add-opens", "java.base/java.math=ALL-UNNAMED"]
+    useJUnitPlatform()
+}
+
 
